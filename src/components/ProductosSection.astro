@@ -1,4 +1,23 @@
 ---
+import { Image } from "astro:assets";
+import crystalin from "../assets/prod-crystalin.webp";
+import fixinol from "../assets/prod-fixinol.webp";
+import lipoxin from "../assets/prod-lipoxin.webp";
+import lifetone from "../assets/prod-lifetone.webp";
+import maxiflex from "../assets/prod-maxiflex.webp";
+import ultraven from "../assets/prod-ultraven.webp";
+import andromax from "../assets/prod-andromax.webp";
+import { lazy } from "astro:schema";
+const products = [
+  { src: crystalin, name: "CRYSTALIN", link: "https://www.crystalin.fit/" },
+  { src: fixinol, name: "FIXINOL", link: "https://www.fixinol.fit/" },
+  { src: lipoxin, name: "LIPOXIN", link: "https://www.lipoxin.fit/" },
+  { src: lifetone, name: "LIFETONE", link: "https://www.lifetone.fit/" },
+  { src: maxiflex, name: "MAXIFLEX", link: "https://www.maxiflex.fit/" },
+  { src: ultraven, name: "ULTRAVEN", link: "https://www.ultraven.fit/" },
+  { src: andromax, name: "ANDROMAX", link: "https://www.andromax.fit/" },
+];
+
 // ProductosSection.astro
 ---
 
@@ -12,162 +31,34 @@
 
   <!-- Cuadrícula de productos -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-    <!-- Productos originales -->
-    <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
-      <div class="w-full aspect-square mb-4">
-        <img
-          src="/prod-crystalin.webp"
-          alt="CRYSTALIN"
-          class="w-full h-full object-contain"
-        />
+    {products.map((product) => (
+      <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
+        <div class="w-full aspect-square mb-4">
+          <Image
+            src={product.src}
+            alt={product.name}
+            class="w-full h-full object-contain"
+            format="webp"
+            loading="lazy"
+          />
+        </div>
+        <h3 class="text-neutral-dark text-lg font-medium text-center mb-2">
+          {product.name}
+        </h3>
+        <a
+          href={product.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FF6100] text-white px-6 py-2 rounded-full hover:bg-[#E65600] transition-colors inline-block text-center"
+        >
+          Ver producto
+        </a>
       </div>
-      <h3 class="text-lg font-medium text-center mb-2">CRYSTALIN</h3>
-      <p class="text-xl font-semibold text-gray-900 mb-4">$19.95</p>
-      <a
-        href="https://www.crystalin.fit/"
-        target="_blank"
-        class="bg-[#91D2E3] text-white px-6 py-2 rounded-full hover:bg-[#7BC0D1] transition-colors inline-block text-center"
-      >
-        Ver producto
-      </a>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
-      <div class="w-full aspect-square mb-4">
-        <img
-          src="/prod-fixinol.webp"
-          alt="FIXINOL"
-          class="w-full h-full object-contain"
-        />
-      </div>
-      <h3 class="text-lg font-medium text-center mb-2">FIXINOL</h3>
-      <div class="flex items-center gap-2 mb-4">
-        <span class="text-gray-400 line-through">$30.00</span>
-        <span class="text-xl font-semibold text-[#91D2E3]">$24.50</span>
-      </div>
-      <a
-        href="https://www.fixinol.fit/"
-        target="_blank"
-        class="bg-[#91D2E3] text-white px-6 py-2 rounded-full hover:bg-[#7BC0D1] transition-colors inline-block text-center"
-      >
-        Ver producto
-      </a>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
-      <div class="w-full aspect-square mb-4">
-        <img
-          src="/prod-lipoxin.webp"
-          alt="LIPOXIN"
-          class="w-full h-full object-contain"
-        />
-      </div>
-      <h3 class="text-lg font-medium text-center mb-2">
-        LIPOXIN
-      </h3>
-      <div class="flex items-center gap-2 mb-4">
-        <span class="text-gray-400 line-through">$18.95</span>
-        <span class="text-xl font-semibold text-[#91D2E3]">$16.95</span>
-      </div>
-      <a
-        href="https://www.lipoxin.fit/"
-        target="_blank"
-        class="bg-[#91D2E3] text-white px-6 py-2 rounded-full hover:bg-[#7BC0D1] transition-colors inline-block text-center"
-      >
-        Ver producto
-      </a>
-    </div>
-
-    <!-- Repite el patrón para los demás productos -->
-    <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
-      <div class="w-full aspect-square mb-4">
-        <img
-          src="/prod-lifetone.webp"
-          alt="LIFETONE"
-          class="w-full h-full object-contain"
-        />
-      </div>
-      <h3 class="text-lg font-medium text-center mb-2">
-        LIFETONE
-      </h3>
-      <div class="flex items-center gap-2 mb-4">
-        <span class="text-gray-400 line-through">$25.00</span>
-        <span class="text-xl font-semibold text-[#91D2E3]">$22.50</span>
-      </div>
-      <a
-        href="https://www.lifetone.fit/"
-        target="_blank"
-        class="bg-[#91D2E3] text-white px-6 py-2 rounded-full hover:bg-[#7BC0D1] transition-colors inline-block text-center"
-      >
-        Ver producto
-      </a>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
-      <div class="w-full aspect-square mb-4">
-        <img
-          src="/prod-maxiflex.webp"
-          alt="MAXIFLEX"
-          class="w-full h-full object-contain"
-        />
-      </div>
-      <h3 class="text-lg font-medium text-center mb-2">MAXIFLEX</h3>
-      <div class="flex items-center gap-2 mb-4">
-        <span class="text-gray-400 line-through">$35.00</span>
-        <span class="text-xl font-semibold text-[#91D2E3]">$29.95</span>
-      </div>
-      <a
-        href="https://www.maxiflex.fit/"
-        target="_blank"
-        class="bg-[#91D2E3] text-white px-6 py-2 rounded-full hover:bg-[#7BC0D1] transition-colors inline-block text-center"
-      >
-        Ver producto
-      </a>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
-      <div class="w-full aspect-square mb-4">
-        <img
-          src="/prod-ultraven.webp"
-          alt="ULTRAVEN"
-          class="w-full h-full object-contain"
-        />
-      </div>
-      <h3 class="text-lg font-medium text-center mb-2">ULTRAVEN</h3>
-      <p class="text-xl font-semibold text-gray-900 mb-4">$27.50</p>
-      <a
-        href="https://www.ultraven.fit/"
-        target="_blank"
-        class="bg-[#91D2E3] text-white px-6 py-2 rounded-full hover:bg-[#7BC0D1] transition-colors inline-block text-center"
-      >
-        Ver producto
-      </a>
-    </div>
-
-    <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
-      <div class="w-full aspect-square mb-4">
-        <img
-          src="/prod-andromax.webp"
-          alt="ANDROMAX"
-          class="w-full h-full object-contain"
-        />
-      </div>
-      <h3 class="text-lg font-medium text-center mb-2">ANDROMAX</h3>
-      <div class="flex items-center gap-2 mb-4">
-        <span class="text-gray-400 line-through">$45.00</span>
-        <span class="text-xl font-semibold text-[#91D2E3]">$38.95</span>
-      </div>
-      <a
-        href="https://www.andromax.fit/"
-        target="_blank"
-        class="bg-[#91D2E3] text-white px-6 py-2 rounded-full hover:bg-[#7BC0D1] transition-colors inline-block text-center"
-      >
-        Ver producto
-      </a>
-    </div>
+    ))}
   </div>
+  
   <!-- Beneficios de envío -->
-  <div class="w-full bg-[#91D2E3] py-8 rounded-xl">
+  <div class="w-full bg-[#FF6100] py-8 rounded-xl">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Envíos Gratuitos con mínimo de compra -->
       <div class="flex items-center justify-center gap-4">
@@ -179,6 +70,7 @@
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
+            <title>Entrega a nivel nacional</title>
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -194,8 +86,9 @@
           </svg>
         </div>
         <div class="text-white">
-          <h3 class="text-lg font-semibold">ENVÍOS GRATUITOS</h3>
-          <p class="text-sm">Compras superiores a $20</p>
+          <h3 class="text-neutral-dark text-lg font-semibold uppercase">
+            Entrega a nivel nacional
+          </h3>
         </div>
       </div>
 
@@ -209,6 +102,7 @@
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
+            <title>Envios gratuitos</title>
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -218,7 +112,9 @@
           </svg>
         </div>
         <div class="text-white">
-          <h3 class="text-lg font-semibold">ENVÍOS GRATUITOS</h3>
+          <h3 class="text-neutral-dark text-lg font-semibold uppercase">
+            Envios gratuitos
+          </h3>
         </div>
       </div>
 
@@ -232,6 +128,7 @@
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
+          <title>Envios 24/48h</title>
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -240,7 +137,7 @@
           </svg>
         </div>
         <div class="text-white">
-          <h3 class="text-lg font-semibold">ENVÍOS 24/48H</h3>
+          <h3 class="text-neutral-dark text-lg font-semibold uppercase">Envios 24/48h</h3>
         </div>
       </div>
     </div>

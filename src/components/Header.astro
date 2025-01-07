@@ -1,107 +1,142 @@
 ---
 // Header.astro
+import { Image } from "astro:assets";
+import bgHeader from "../assets/bg-header.webp";
+import vitalGlow from "../assets/VitalGlow.webp";
 ---
 
-<header     
-    class="relative min-h-screen bg-cover bg-center bg-no-repeat"
-    style="background-image: url('/bg-header.webp')">
-    <!-- Barra de Navegación -->
-    <nav class="w-full">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <img src="/VitalGlow.webp" alt="Logo" class="h-[5rem]">
-                </div>
-                
-                <!-- Enlaces de Navegación -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-center space-x-8">
-                        <a href="#sobre-nosotros" class="text-white font-semibold hover:text-gray-900 smooth-scroll">Sobre Vital Glow</a>
-                        <a href="#products" class="text-white font-semibold hover:text-gray-900 smooth-scroll">Productos</a>
-                        <a href="#donde-comprar" class="text-white font-semibold hover:text-gray-900 smooth-scroll">Dónde comprar</a>
-                        <a href="#contacto" class="text-white font-semibold hover:text-gray-900 smooth-scroll">Contacto</a>
-                    </div>
-                </div>
-            </div>
+<header
+  class="relative min-h-screen bg-cover bg-center bg-no-repeat bg-header"
+>
+  <!-- Barra de Navegación -->
+  <nav class="w-full" role="navigation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center items-center h-16">
+        <!-- Enlaces de Navegación -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-center space-x-8">
+            <a
+              href="#sobre-nosotros"
+              class="text-white font-semibold hover:text-neutral-dark smooth-scroll"
+              >Sobre Vital Glow</a
+            >
+            <a
+              href="#products"
+              class="text-white font-semibold hover:text-neutral-dark smooth-scroll"
+              >Productos</a
+            >
+            <a
+              href="#donde-comprar"
+              class="text-white font-semibold hover:text-neutral-dark smooth-scroll"
+              >Dónde comprar</a
+            >
+            <a
+              href="#contacto"
+              class="text-white font-semibold hover:text-neutral-dark smooth-scroll"
+              >Contacto</a
+            >
+          </div>
         </div>
-    </nav>
-
-    <!-- Sección Hero -->
-    <div class="relative h-screen">
-        <div class="absolute inset-0 bg-gradient-to-r "></div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-            <div class="max-w-2xl">
-                <h1 class="text-gray-800 text-6xl font-light mb-6">
-                    <span class="text-gray-800 block mb-2">
-                        <span class="font-milks font-extrabold block mb-2">VITAL</span>
-                    GLOW
-                    </span>
-                    mejora tu vida
-                </h1>
-                <p class="text-xl text-gray-800 mb-8">
-                    Creamos productos basados en componentes naturales y científicamente 
-                    probados que aportan beneficios para la salud y el bienestar general de 
-                    las personas.
-                </p>
-                <a href="#products" class="inline-block smooth-scroll">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-800 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
+  </nav>
+
+  <!-- Sección Hero -->
+  <div class="relative h-screen">
+    <div class="absolute inset-0 bg-gradient-to-r"></div>
+
+    <div
+      class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center"
+    >
+      <div class="max-w-2xl">
+        <h1 class="text-neutral-dark text-6xl font-light mb-6">
+          <span class="font-milks font-extrabold text-neutral-dark block mb-2">
+            <Image
+              src={vitalGlow}
+              alt="Vital Glow Logo"
+              class="w-[8rem] md:w-[6rem]"
+              format="webp"
+              loading="eager"
+            />
+          </span>
+          mejora tu vida
+        </h1>
+        <p class="text-xl text-neutral-dark mb-8">
+          Creamos productos basados en componentes naturales y científicamente
+          probados que aportan beneficios para la salud y el bienestar general
+          de las personas.
+        </p>
+        <a href="#products" class="inline-block smooth-scroll">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-12 w-12 text-neutral-dark animate-bounce"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <title>Desplazarse a Productos</title>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <script>
-    document.addEventListener('astro:page-load', () => {
-        // Seleccionar todos los enlaces con la clase smooth-scroll
-        const smoothScrollLinks = document.querySelectorAll<HTMLAnchorElement>('.smooth-scroll');
-        
-        smoothScrollLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                const targetId = link.getAttribute('href');
-                if (!targetId) return;
+  document.addEventListener("astro:page-load", () => {
+    // Seleccionar todos los enlaces con la clase smooth-scroll
+    const smoothScrollLinks =
+      document.querySelectorAll<HTMLAnchorElement>(".smooth-scroll");
 
-                const targetElement = document.querySelector<HTMLElement>(targetId);
-                const navElement = document.querySelector<HTMLElement>('nav');
-                
-                if (targetElement && navElement) {
-                    const navbarHeight = navElement.offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = targetPosition - navbarHeight;
+    smoothScrollLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+        const targetId = link.getAttribute("href");
+        if (!targetId) return;
+
+        const targetElement = document.querySelector<HTMLElement>(targetId);
+        const navElement = document.querySelector<HTMLElement>("nav");
+
+        if (targetElement && navElement) {
+          const navbarHeight = navElement.offsetHeight;
+          const targetPosition =
+            targetElement.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = targetPosition - navbarHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      });
     });
+  });
 </script>
 
 <style>
-    html {
-        scroll-padding-top: 4rem; /* Ajusta esto según la altura de tu navbar */
-        scroll-behavior: smooth;
+  html {
+    scroll-padding-top: 4rem; /* Ajusta esto según la altura de tu navbar */
+    scroll-behavior: smooth;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
     }
-    
-    @keyframes bounce {
-        0%, 100% {
-            transform: translateY(-25%);
-            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-        }
-        50% {
-            transform: translateY(0);
-            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-        }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
-    .animate-bounce {
-        animation: bounce 2s infinite;
-    }
+  }
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
 </style>
