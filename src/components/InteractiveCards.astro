@@ -1,131 +1,168 @@
 ---
 // InteractiveCards.astro
-import crystalin from "../assets/prod-crystalin.webp";
-import fixinol from "../assets/prod-fixinol.webp";
-import lipoxin from "../assets/prod-lipoxin.webp";
-import lifetone from "../assets/prod-lifetone.webp";
-import maxiflex from "../assets/prod-maxiflex.webp";
-import ultraven from "../assets/prod-ultraven.webp";
-import andromax from "../assets/prod-andromax.webp";
-import { lazy } from "astro:schema";
-const products = [
-  { src: crystalin, name: "CRYSTALIN", link: "https://www.crystalin.fit/" },
-  { src: fixinol, name: "FIXINOL", link: "https://www.fixinol.fit/" },
-  { src: lipoxin, name: "LIPOXIN", link: "https://www.lipoxin.fit/" },
-  { src: lifetone, name: "LIFETONE", link: "https://www.lifetone.fit/" },
-  { src: maxiflex, name: "MAXIFLEX", link: "https://www.maxiflex.fit/" },
-  { src: ultraven, name: "ULTRAVEN", link: "https://www.ultraven.fit/" },
-  { src: andromax, name: "ANDROMAX", link: "https://www.andromax.fit/" },
-];
 
+const products = [
+  { name: "CRYSTALIN", link: "https://www.crystalin.fit/" },
+  { name: "FIXINOL", link: "https://www.fixinol.fit/" },
+  { name: "LIPOXIN", link: "https://www.lipoxin.fit/" },
+  { name: "LIFETONE", link: "https://www.lifetone.fit/" },
+  { name: "MAXIFLEX", link: "https://www.maxiflex.fit/" },
+  { name: "ULTRAVEN", link: "https://www.ultraven.fit/" },
+  { name: "ANDROMAX", link: "https://www.andromax.fit/" },
+];
 ---
 
 <section class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <h2 class="text-center text-3xl md:text-4xl mb-12">
-        ¿Cómo podemos <span class="font-semibold text-[#1B365D]">ayudarte a mejorar tu vida</span>?
-    </h2>
+  <h2 class="text-center text-3xl md:text-4xl mb-12">
+    ¿Cómo podemos <span class="font-semibold text-[#1B365D]"
+      >ayudarte a mejorar tu vida</span
+    >?
+  </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-        <!-- Tarjeta 1 -->
-        <div class="relative h-64 group perspective">
-            <div class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95">
-                ¿Quieres dormir mejor?
-            </div>
-            <div class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100">
-                <div class="flex-1 flex items-center">
-                    <p class="text-center text-neutral-dark text-base">
-                        Sabías que el 6,7% de la población española está oficialmente diagnosticada de ansiedad
-                    </p>
-                </div>
-                <button class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px]">
-                    Quiero dormir mejor
-                </button>
-            </div>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+  >
+    <!-- Tarjeta 1 -->
+    <div class="relative h-64 group perspective">
+      <div
+        class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95"
+      >
+        ¿Quieres dormir mejor?
+      </div>
+      <div
+        class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100"
+      >
+        <div class="flex-1 flex items-center">
+          <p class="text-center text-neutral-dark text-base">
+            Sabías que el 6,7% de la población española está oficialmente
+            diagnosticada de ansiedad
+          </p>
         </div>
-
-        <!-- Tarjeta 2 -->
-        <div class="relative h-64 group perspective">
-            <div class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95">
-                ¿Necesitas un plus de energía?
-            </div>
-            <div class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100">
-                <div class="flex-1 flex items-center">
-                    <p class="text-center text-neutral-dark text-base">
-                        La falta de energía puede afectar significativamente tu calidad de vida
-                    </p>
-                </div>
-                <button class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px]">
-                    Quiero más energía
-                </button>
-            </div>
-        </div>
-
-        <!-- Tarjeta 3 -->
-        <div class="relative h-64 group perspective">
-            <div class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95">
-                ¿Quieres cuidar tu salud digestiva y evitar que tu estómago te pese?
-            </div>
-            <div class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100">
-                <div class="flex-1 flex items-center">
-                    <p class="text-center text-neutral-dark text-base">
-                        Una buena digestión es clave para tu bienestar general
-                    </p>
-                </div>
-                <button class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px]">
-                    Mejorar mi digestión
-                </button>
-            </div>
-        </div>
-
-        <!-- Tarjeta 4 -->
-        <div class="relative h-64 group perspective">
-            <div class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95">
-                ¿Quieres mejorar tu salud íntima?
-            </div>
-            <div class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100">
-                <div class="flex-1 flex items-center">
-                    <p class="text-center text-neutral-dark text-base">
-                        Tu salud íntima merece atención y cuidado especial
-                    </p>
-                </div>
-                <a 
-                href={products[6].link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px] text-center inline-block no-underline"
-            >
-                Cuidar mi salud íntima
-            </a>
-            </div>
-        </div>
-
-        <!-- Tarjeta 5 -->
-        <div class="relative h-64 group perspective">
-            <div class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95">
-                ¿Te gustaría mejorar tus niveles de estrés y ansiedad?
-            </div>
-            <div class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100">
-                <div class="flex-1 flex items-center">
-                    <p class="text-center text-neutral-dark text-base">
-                        El manejo del estrés es fundamental para una vida saludable
-                    </p>
-                </div>
-                <button class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px]">
-                    Reducir mi estrés
-                </button>
-            </div>
-        </div>
-
-        
+        <a
+          href={products[0].link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px] text-center inline-block no-underline"
+        >
+          Quiero dormir mejor
+        </a>
+      </div>
     </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="relative h-64 group perspective">
+      <div
+        class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95"
+      >
+        ¿Necesitas un plus de energía?
+      </div>
+      <div
+        class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100"
+      >
+        <div class="flex-1 flex items-center">
+          <p class="text-center text-neutral-dark text-base">
+            La falta de energía puede afectar significativamente tu calidad de
+            vida
+          </p>
+        </div>
+        <a
+          href={products[6].link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px] text-center inline-block no-underline"
+        >
+          Quiero más energía
+        </a>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="relative h-64 group perspective">
+      <div
+        class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95"
+      >
+        ¿Quieres cuidar tu salud digestiva y evitar que tu estómago te pese?
+      </div>
+      <div
+        class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100"
+      >
+        <div class="flex-1 flex items-center">
+          <p class="text-center text-neutral-dark text-base">
+            Una buena digestión es clave para tu bienestar general
+          </p>
+        </div>
+
+        <a
+          href={products[6].link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px] text-center inline-block no-underline"
+        >
+          Mejorar mi digestión
+        </a>
+      </div>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="relative h-64 group perspective">
+      <div
+        class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95"
+      >
+        ¿Quieres mejorar tu salud íntima?
+      </div>
+      <div
+        class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100"
+      >
+        <div class="flex-1 flex items-center">
+          <p class="text-center text-neutral-dark text-base">
+            Tu salud íntima merece atención y cuidado especial
+          </p>
+        </div>
+        <a
+          href={products[6].link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px] text-center inline-block no-underline"
+        >
+          Cuidar mi salud íntima
+        </a>
+      </div>
+    </div>
+
+    <!-- Tarjeta 5 -->
+    <div class="relative h-64 group perspective">
+      <div
+        class="absolute inset-0 bg-[#FF6100] rounded-xl p-6 flex items-center justify-center text-white text-center text-xl font-medium transition-all duration-300 ease-in-out cursor-pointer transform-style preserve-3d group-hover:opacity-0 group-hover:scale-95"
+      >
+        ¿Te gustaría mejorar tus niveles de estrés y ansiedad?
+      </div>
+      <div
+        class="absolute inset-0 bg-white rounded-xl p-6 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out shadow-lg transform scale-90 group-hover:scale-100"
+      >
+        <div class="flex-1 flex items-center">
+          <p class="text-center text-neutral-dark text-base">
+            El manejo del estrés es fundamental para una vida saludable
+          </p>
+        </div>
+        <a
+          href={products[6].link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px] text-center inline-block no-underline"
+        >
+          Reducir mi estrés
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
-    .perspective {
-        perspective: 1000px;
-    }
-    
-    .transform-style {
-        transform-style: preserve-3d;
-    }
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .transform-style {
+    transform-style: preserve-3d;
+  }
 </style>
