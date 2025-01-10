@@ -1,5 +1,23 @@
 ---
 // InteractiveCards.astro
+import crystalin from "../assets/prod-crystalin.webp";
+import fixinol from "../assets/prod-fixinol.webp";
+import lipoxin from "../assets/prod-lipoxin.webp";
+import lifetone from "../assets/prod-lifetone.webp";
+import maxiflex from "../assets/prod-maxiflex.webp";
+import ultraven from "../assets/prod-ultraven.webp";
+import andromax from "../assets/prod-andromax.webp";
+import { lazy } from "astro:schema";
+const products = [
+  { src: crystalin, name: "CRYSTALIN", link: "https://www.crystalin.fit/" },
+  { src: fixinol, name: "FIXINOL", link: "https://www.fixinol.fit/" },
+  { src: lipoxin, name: "LIPOXIN", link: "https://www.lipoxin.fit/" },
+  { src: lifetone, name: "LIFETONE", link: "https://www.lifetone.fit/" },
+  { src: maxiflex, name: "MAXIFLEX", link: "https://www.maxiflex.fit/" },
+  { src: ultraven, name: "ULTRAVEN", link: "https://www.ultraven.fit/" },
+  { src: andromax, name: "ANDROMAX", link: "https://www.andromax.fit/" },
+];
+
 ---
 
 <section class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -70,9 +88,14 @@
                         Tu salud íntima merece atención y cuidado especial
                     </p>
                 </div>
-                <button class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px]">
-                    Cuidar mi salud íntima
-                </button>
+                <a 
+                href={products[6].link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 bg-[#FF6100] text-white px-6 py-2.5 rounded-full hover:bg-[#E65600] transition-colors text-base w-full max-w-[200px] text-center inline-block no-underline"
+            >
+                Cuidar mi salud íntima
+            </a>
             </div>
         </div>
 
@@ -92,6 +115,8 @@
                 </button>
             </div>
         </div>
+
+        
     </div>
 </section>
 

@@ -1,0 +1,152 @@
+---
+// ContactSection.astro
+---
+
+<section id="contacto" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-semibold text-[#1B365D] mb-4">Contáctanos</h2>
+            <p class="text-neutral-dark text-lg max-w-2xl mx-auto">
+                Déjanos tus datos y nos pondremos en contacto contigo lo antes posible
+            </p>
+        </div>
+
+        <div class="max-w-md mx-auto">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <form id="contactSectionForm" class="space-y-6">
+                    <div>
+                        <label for="sectionName" class="block text-gray-700 mb-2 font-medium">
+                            Nombre completo
+                        </label>
+                        <input
+                            type="text"
+                            id="sectionName"
+                            name="name"
+                            required
+                            class="input"
+                            placeholder="Ingresa tu nombre"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="sectionPhone" class="block text-gray-700 mb-2 font-medium">
+                            Teléfono
+                        </label>
+                        <div class="relative">
+                            <input
+                                type="tel"
+                                id="sectionPhone"
+                                name="phone"
+                                required
+                                pattern="^\+593[0-9]{9}$"
+                                class="input"
+                                placeholder="+593xxxxxxxxx"
+                            >
+                            <p id="phoneError" class="text-red-500 text-sm mt-1 hidden">
+                                El número debe empezar con +593 seguido de 9 dígitos
+                            </p>
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-[#FF6100] text-white py-3 rounded-lg hover:bg-[#E65600] transition-colors text-lg font-medium"
+                    >
+                        Enviar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function initializeContactSectionForm() {
+        const form = document.querySelector<HTMLFormElement>('#contactSectionForm');
+        const phoneInput = document.querySelector<HTMLInputElement>('#sectionPhone');
+        const phoneError = document.querySelector<HTMLParagraphElement>('#phoneError');
+
+        if (!form || !phoneInput || !phoneError) {
+            console.error('No se encontraron los elementos necesarios');
+            return;
+        }
+
+        // Validación en tiempo real del teléfono
+        phoneInput.addEventListener('input', (e) => {
+            const target = e.target as HTMLInputElement;
+            const phoneRegex = /^\+593[0-9]{9}$/;
+            
+            if (!phoneRegex.test(target.value)) {
+                phoneError.classList.remove('hidden');
+                target.setCustomValidity('El número debe empezar con +593 seguido de 9 dígitos');
+            } else {
+                phoneError.classList.add('hidden');
+                target.setCustomValidity('');
+            }
+        });
+
+        // Auto-prefijo +593
+        phoneInput.addEventListener('focus', (e) => {
+            const target = e.target as HTMLInputElement;
+            if (!target.value.startsWith('+593')) {
+                target.value = '+593';
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            try {
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                const phoneRegex = /^\+593[0-9]{9}$/;
+
+                // Validación adicional antes de enviar
+                if (!phoneRegex.test(data.phone as string)) {
+                    alert('Por favor, ingresa un número de teléfono válido (+593 seguido de 9 dígitos)');
+                    return;
+                }
+
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) throw new Error('Error en el envío');
+
+                form.reset();
+                alert('¡Gracias por contactarnos! Te responderemos pronto.');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+            }
+        });
+    }
+
+    // Inicializar cuando el DOM esté listo
+    document.addEventListener('astro:page-load', initializeContactSectionForm);
+    
+    // También inicializar inmediatamente
+    initializeContactSectionForm();
+</script>
+
+<style>
+  .input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db; /* Border gris */
+    border-radius: 0.5rem;
+    outline: none;
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .input:focus {
+    border-color: #e65600; /* Azul claro */
+    box-shadow: 0 0 0 2px rgba(236, 76, 13, 0.719);
+  }
+</style>

@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request }) => {
     const data = {
       ...formData,
       timestamp,
-      landingPage: "pagina-principal",
+      landingPage: "main",
     };
 
     const response = await fetch(

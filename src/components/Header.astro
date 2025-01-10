@@ -25,13 +25,13 @@ import vitalGlow from "../assets/VitalGlow.webp";
               class="text-white font-semibold hover:text-neutral-dark smooth-scroll"
               >Productos</a
             >
-            <a
+            <!-- <a
               href="#donde-comprar"
               class="text-white font-semibold hover:text-neutral-dark smooth-scroll"
               >Dónde comprar</a
-            >
+            > -->
             <a
-              href="#contacto"
+              href="#contactSectionForm"
               class="text-white font-semibold hover:text-neutral-dark smooth-scroll"
               >Contacto</a
             >
@@ -48,40 +48,19 @@ import vitalGlow from "../assets/VitalGlow.webp";
     <div
       class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center"
     >
-      <div class="max-w-2xl">
+      <div class="max-w-2xl mb-[22rem]">
+        <span class="font-milks text-neutral-dark block mb-2">
+          <Image
+            src={vitalGlow}
+            alt="Vital Glow Logo"
+            class="w-[11rem]  md:w-[11rem]"
+            format="webp"
+            loading="eager"
+          />
+        </span>
         <h1 class="text-neutral-dark text-6xl font-light mb-6">
-          <span class="font-milks font-extrabold text-neutral-dark block mb-2">
-            <Image
-              src={vitalGlow}
-              alt="Vital Glow Logo"
-              class="w-[8rem] md:w-[6rem]"
-              format="webp"
-              loading="eager"
-            />
-          </span>
           mejora tu vida
         </h1>
-        <p class="text-xl text-neutral-dark mb-8">
-          Creamos productos basados en componentes naturales y científicamente
-          probados que aportan beneficios para la salud y el bienestar general
-          de las personas.
-        </p>
-        <a href="#products" class="inline-block smooth-scroll">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-12 w-12 text-neutral-dark animate-bounce"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <title>Desplazarse a Productos</title>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </a>
       </div>
     </div>
   </div>
