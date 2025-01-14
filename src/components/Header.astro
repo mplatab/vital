@@ -1,7 +1,6 @@
 ---
 // Header.astro
-import { Image } from "astro:assets";
-const vitalGlow = (await import("/public/images/VitalGlow.webp")).default;
+const vitalGlow = "/images/VitalGlow.webp";
 ---
 
 <header
@@ -49,11 +48,10 @@ const vitalGlow = (await import("/public/images/VitalGlow.webp")).default;
     >
       <div class="max-w-2xl mb-[22rem]">
         <span class="font-milks text-neutral-dark block mb-2">
-          <Image
+          <img
             src={vitalGlow}
             alt="Vital Glow Logo"
             class="w-[11rem]  md:w-[11rem]"
-            format="webp"
             loading="eager"
           />
         </span>
