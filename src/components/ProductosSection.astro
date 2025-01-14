@@ -1,38 +1,37 @@
 ---
-import { Image } from "astro:assets";
 const products = [
   { 
-    src: (await import("/public/images/prod-crystalin.webp")).default, 
+    src: "/images/prod-crystalin.webp", 
     name: "CRYSTALIN", 
     link: "https://www.crystalin.fit/" 
   },
   { 
-    src: (await import("/public/images/prod-fixinol.webp")).default, 
+    src: "/images/prod-fixinol.webp", 
     name: "FIXINOL", 
     link: "https://www.fixinol.fit/" 
   },
   { 
-    src: (await import("/public/images/prod-lipoxin.webp")).default, 
+    src: "/images/prod-lipoxin.webp", 
     name: "LIPOXIN", 
     link: "https://www.lipoxin.fit/" 
   },
   { 
-    src: (await import("/public/images/prod-lifetone.webp")).default, 
+    src: "/images/prod-lifetone.webp", 
     name: "LIFETONE", 
     link: "https://www.lifetone.fit/" 
   },
   { 
-    src: (await import("/public/images/prod-maxiflex.webp")).default, 
+    src: "/images/prod-maxiflex.webp", 
     name: "MAXIFLEX", 
     link: "https://www.maxiflex.fit/" 
   },
   { 
-    src: (await import("/public/images/prod-ultraven.webp")).default, 
+    src: "/images/prod-ultraven.webp", 
     name: "ULTRAVEN", 
     link: "https://www.ultraven.fit/" 
   },
   { 
-    src: (await import("/public/images/prod-andromax.webp")).default, 
+    src: "/images/prod-andromax.webp", 
     name: "ANDROMAX", 
     link: "https://www.andromax.fit/" 
   }
@@ -54,11 +53,10 @@ const products = [
     {products.map((product) => (
       <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center">
         <div class="w-full aspect-square mb-4">
-          <Image
+          <img
             src={product.src}
             alt={product.name}
             class="w-full h-full object-contain"
-            format="webp"
             loading="lazy"
           />
         </div>
