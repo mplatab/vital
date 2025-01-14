@@ -1,21 +1,41 @@
 ---
 import { Image } from "astro:assets";
-import crystalin from "../assets/prod-crystalin.webp";
-import fixinol from "../assets/prod-fixinol.webp";
-import lipoxin from "../assets/prod-lipoxin.webp";
-import lifetone from "../assets/prod-lifetone.webp";
-import maxiflex from "../assets/prod-maxiflex.webp";
-import ultraven from "../assets/prod-ultraven.webp";
-import andromax from "../assets/prod-andromax.webp";
-import { lazy } from "astro:schema";
 const products = [
-  { src: crystalin, name: "CRYSTALIN", link: "https://www.crystalin.fit/" },
-  { src: fixinol, name: "FIXINOL", link: "https://www.fixinol.fit/" },
-  { src: lipoxin, name: "LIPOXIN", link: "https://www.lipoxin.fit/" },
-  { src: lifetone, name: "LIFETONE", link: "https://www.lifetone.fit/" },
-  { src: maxiflex, name: "MAXIFLEX", link: "https://www.maxiflex.fit/" },
-  { src: ultraven, name: "ULTRAVEN", link: "https://www.ultraven.fit/" },
-  { src: andromax, name: "ANDROMAX", link: "https://www.andromax.fit/" },
+  { 
+    src: (await import("/public/images/prod-crystalin.webp")).default, 
+    name: "CRYSTALIN", 
+    link: "https://www.crystalin.fit/" 
+  },
+  { 
+    src: (await import("/public/images/prod-fixinol.webp")).default, 
+    name: "FIXINOL", 
+    link: "https://www.fixinol.fit/" 
+  },
+  { 
+    src: (await import("/public/images/prod-lipoxin.webp")).default, 
+    name: "LIPOXIN", 
+    link: "https://www.lipoxin.fit/" 
+  },
+  { 
+    src: (await import("/public/images/prod-lifetone.webp")).default, 
+    name: "LIFETONE", 
+    link: "https://www.lifetone.fit/" 
+  },
+  { 
+    src: (await import("/public/images/prod-maxiflex.webp")).default, 
+    name: "MAXIFLEX", 
+    link: "https://www.maxiflex.fit/" 
+  },
+  { 
+    src: (await import("/public/images/prod-ultraven.webp")).default, 
+    name: "ULTRAVEN", 
+    link: "https://www.ultraven.fit/" 
+  },
+  { 
+    src: (await import("/public/images/prod-andromax.webp")).default, 
+    name: "ANDROMAX", 
+    link: "https://www.andromax.fit/" 
+  }
 ];
 
 // ProductosSection.astro

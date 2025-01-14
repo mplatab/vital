@@ -1,8 +1,7 @@
 ---
 // Header.astro
 import { Image } from "astro:assets";
-import bgHeader from "../assets/bg-header.webp";
-import vitalGlow from "../assets/VitalGlow.webp";
+const vitalGlow = (await import("/public/images/VitalGlow.webp")).default;
 ---
 
 <header

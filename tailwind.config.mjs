@@ -22,7 +22,7 @@ export default {
 			}
 		  },
 		  backgroundImage: {
-			'header': "url('/bg-header.webp')",
+			'header': "url('/images/bg-header.webp')",
 		  },
 		},
 	},
